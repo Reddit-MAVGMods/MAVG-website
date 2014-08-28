@@ -1,0 +1,10 @@
+{
+    "name": "MAVG-website",
+    "author": "Hydrothermal",
+    "version": "0.0.1",
+    "description": "Website for the MAVG project.",
+    "dependencies": {
+        "express": "latest",
+        "ejs": "latest"
+    }
+}
