@@ -25,7 +25,5 @@ app.listen(port);
 //Listeners
 app.get("/", function(req, res){
     "use strict";
-    res.render("index", {
-        welcome: "Hello world!"
-    });
+    res.render("index");
 });
