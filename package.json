@@ -3,8 +3,13 @@
     "author": "Hydrothermal",
     "version": "0.0.1",
     "description": "Website for the MAVG project.",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/Reddit-MAVGMods/MAVG-website"
+    },
     "dependencies": {
         "express": "latest",
-        "ejs": "latest"
+        "ejs": "latest",
+        "body-parser": "latest"
     }
 }
