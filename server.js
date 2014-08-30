@@ -13,7 +13,10 @@ function applog(str) {
 //Setting stuff up
 app.set("view engine", "ejs");
     applog("Using EJS as view engine.");
-app.use(bodyParser());
+app.use(bodyParser.urlencoded({
+  extended: true
+}));
+app.use(bodyParser.json());
     applog("Loaded bodyParser.");
 app.set("views", __dirname + "/views");
     applog("Serving views on /views.");
