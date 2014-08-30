@@ -2,10 +2,79 @@
 <html>
 <head>
     <title>MAVG | Home</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/core.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
 </head>
 <body>
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sagittis dolor a lectus blandit, a tincidunt massa dapibus. Cras erat mauris, mattis vel venenatis vitae, tempor et magna. Phasellus tempus dolor sagittis, commodo justo vel, congue purus. Aenean scelerisque risus ac dolor dapibus, vel consectetur dolor aliquam. Mauris consectetur odio est, maximus porta sem feugiat a. Morbi sed euismod ligula. Sed ac molestie massa. Phasellus scelerisque pretium condimentum.
-    <br><br>
-    Aliquam in sodales magna. Ut auctor ut quam at sollicitudin. Mauris eu facilisis leo. Sed commodo turpis nibh, nec pellentesque velit maximus at. Integer venenatis consequat dui eu tempus. Nunc eu purus suscipit, laoreet diam et, luctus lectus. Sed accumsan ipsum eget orci finibus, in convallis ante lobortis. Cras lorem risus, eleifend ut vehicula eu, rhoncus fermentum turpis. Nam ultrices, lectus eu aliquam vehicula, nulla mi vehicula risus, at scelerisque risus magna eu tortor. Cras et quam vel eros scelerisque venenatis. Duis dignissim elit ut urna gravida posuere. Cras vehicula massa vel odio hendrerit, in tempus purus mattis. Integer molestie laoreet euismod. Maecenas tincidunt justo sed ultricies molestie. Pellentesque pretium ligula a mauris ultricies imperdiet.
+    <div class="col-md-12 align-right" id="acc-bar">
+        <button id="btn-signin" class="btn btn-primary btn-sm" id="btn-signin">Sign in</button>
+        &nbsp;or&nbsp;
+        <button id="btn-register" class="btn btn-primary btn-sm" id="btn-register">Register</button>
+    </div>
+    <div class="col-md-2" id="sidebar">
+        <div id="logo"><img src="images/MAVG.png"></div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor, arcu ac iaculis eleifend, orci est mattis velit, eget semper neque neque maximus felis. Sed pharetra velit dui, nec ultricies felis feugiat vitae. Mauris vitae auctor enim, ac semper nibh. Nunc maximus, neque vitae elementum feugiat, sapien tortor pellentesque sapien, non porttitor augue nunc vitae massa.<br><br>
+        <div class="align-center">
+            <span class="well placeholder-video" id="sidebar-video"></span>
+        </div>
+    </div>
+    <div class="col-md-10" id="main">
+        <div id="asset-filters">
+            &nbsp;Sort by:&nbsp;
+            <button id="btn-sort-latest" class="asset-filter btn btn-success btn-sm active">Latest</button>
+            <button id="btn-sort-popular" class="asset-filter btn btn-info btn-sm">Popular</button>
+
+            <div class="spacer-horizontal-tiny"></div>
+
+            Show:&nbsp;
+            <button id="btn-show-games" class="asset-filter btn btn-success btn-sm active">Games</button>
+            <button id="btn-show-images" class="asset-filter btn btn-success btn-sm active">Images</button>
+        </div>
+        <hr class="underline">
+        <div id="games" class="col-md-12">
+            <a class="col-md-5 game-preview" title="Game Title">
+                <div class="align-center"><span class="well placeholder-image game-preview-image"></span></div>
+                <div class="game-description">
+                    <span class="game-title">Game 2</span><br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis mi est. Etiam lobortis velit sed tristique lacinia. Vestibulum pulvinar eget nisi in sodales. Donec congue tellus arcu, quis lobortis tellus gravida eget. Nulla dolor odio, pretium vel maximus sit amet, dapibus id massa.
+                </div>
+            </a>
+            <a class="col-md-5 game-preview" title="Game Title">
+                <div class="align-center"><span class="well placeholder-image game-preview-image"></span></div>
+                <div class="game-description">
+                    <span class="game-title">Game 1</span><br>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis mi est. Etiam lobortis velit sed tristique lacinia. Vestibulum pulvinar eget nisi in sodales. Donec congue tellus arcu, quis lobortis tellus gravida eget. Nulla dolor odio, pretium vel maximus sit amet, dapibus id massa.
+                </div>
+            </a>
+        </div>
+        <div id="content-divider" class="col-md-12"><hr class="underline"></div>
+        <div id="images" class="col-md-12">
+            <a class="image-preview">
+                <div class="align-center"><span class="well placeholder-image image-preview-image"></span></div>
+                <span class="image-title">Image 4</span><br>
+                Uploaded by Artist Name
+            </a>
+            <a class="image-preview">
+                <div class="align-center"><span class="well placeholder-image image-preview-image"></span></div>
+                <span class="image-title">Image 3</span><br>
+                Uploaded by Artist Name
+            </a>
+            <a class="image-preview">
+                <div class="align-center"><span class="well placeholder-image image-preview-image"></span></div>
+                <span class="image-title">Image 2</span><br>
+                Updated by Artist Name
+            </a>
+            <a class="image-preview">
+                <div class="align-center"><span class="well placeholder-image image-preview-image"></span></div>
+                <span class="image-title">Image 1</span><br>
+                Uploaded by Artist Name
+            </a>
+        </div>
+    </div>
 </body>
 </html>

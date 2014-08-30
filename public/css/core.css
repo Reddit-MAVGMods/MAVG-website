@@ -1,0 +1,64 @@
+body, html {
+    background-color: #000000;
+    color: #FFFFFF;
+}
+
+a {
+    color: #00AAFF;
+    cursor: pointer;
+}
+
+a:hover {
+    color: #00BBFF;
+}
+
+.align-left {
+    text-align: left;
+}
+
+.align-right {
+    text-align: right;
+}
+
+.align-center {
+    text-align: center;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+.well {
+    color: #000000;
+}
+
+.placeholder-video {
+    display: inline-block;
+    background-image: url(../images/placeholder_video.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    cursor: pointer;
+}
+
+.placeholder-video:hover {
+    background-color: #E0E0E0;
+}
+
+.placeholder-image {
+    display: inline-block;
+    background-image: url(../images/placeholder_image.png);
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+}
+
+.underline {
+    margin-top: 2px;
+    margin-bottom: 5px;
+}
+
+.spacer-horizontal-tiny {
+    display: inline-block;
+    width: 6px;
+}
