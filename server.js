@@ -1,5 +1,6 @@
 //Environment setup
 var port = +process.env.PORT || 8080,
+    portarg = process.argv.indexOf("-port");
     express = require("express"),
     bodyParser = require("body-parser"),
     ejs = require("ejs"),
@@ -8,6 +9,10 @@ var port = +process.env.PORT || 8080,
 function applog(str) {
     "use strict";
     console.log(str);
+}
+
+if(portarg !== -1) {
+    port = process.argv[portarg + 1];
 }
 
 //Setting stuff up

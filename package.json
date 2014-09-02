@@ -10,6 +10,7 @@
     "dependencies": {
         "express": "latest",
         "ejs": "latest",
-        "body-parser": "latest"
+        "body-parser": "latest",
+        "forever": "latest"
     }
 }
