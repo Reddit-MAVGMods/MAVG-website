@@ -1,5 +1,5 @@
 //Environment setup
-var port = +process.env.PORT || 8080,
+var port = +process.env.PORT || 80,
     portarg = process.argv.indexOf("-port");
     express = require("express"),
     bodyParser = require("body-parser"),

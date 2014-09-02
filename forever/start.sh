@@ -1,6 +1,6 @@
 #!/bin/bash
  
-../node_modules/forever/bin/forever \
+./node_modules/forever/bin/forever \
 start \
 -al forever.log \
 -ao out.log \
