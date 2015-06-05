@@ -28,6 +28,9 @@ function initialize(rootdir) {
     app.get("/", function(req, res){
         res.render("index");
     });
+
+    //Golem
+    require("./golem")(app);
 }
 
 module.exports = initialize;
