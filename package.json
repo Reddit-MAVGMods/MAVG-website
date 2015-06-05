@@ -11,6 +11,7 @@
         "express": "latest",
         "ejs": "latest",
         "body-parser": "latest",
-        "forever": "latest"
+        "forever": "latest",
+        "marked": "latest"
     }
 }
