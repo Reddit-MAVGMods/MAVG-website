@@ -12,6 +12,8 @@
         "ejs": "latest",
         "body-parser": "latest",
         "forever": "latest",
-        "marked": "latest"
+        "marked": "latest",
+        "bcrypt-nodejs": "latest",
+        "mongoose": "latest"
     }
 }
