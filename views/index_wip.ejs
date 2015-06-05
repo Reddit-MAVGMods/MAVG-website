@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MAVG | Home</title>
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="css/core.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script src="js/jquery.js"></script>
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="col-md-12 align-right" id="acc-bar">
+        <button id="btn-signin" class="btn btn-primary btn-sm" id="btn-signin">Sign in</button>
+        &nbsp;or&nbsp;
+        <button id="btn-register" class="btn btn-primary btn-sm" id="btn-register">Register</button>
+    </div>
+    <div class="col-md-2" id="sidebar">
+        <div id="logo"><img src="images/MAVG.png"></div>
+        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris auctor, arcu ac iaculis eleifend, orci est mattis velit, eget semper neque neque maximus felis. Sed pharetra velit dui, nec ultricies felis feugiat vitae. Mauris vitae auctor enim, ac semper nibh. Nunc maximus, neque vitae elementum feugiat, sapien tortor pellentesque sapien, non porttitor augue nunc vitae massa.<br><br>
+        <div class="align-center">
+            <span class="well placeholder-video" id="sidebar-video"></span>
+        </div>
+    </div>
+    <div class="col-md-10" id="main">
+        <div id="asset-filters">
+            &nbsp;Sort by:&nbsp;
+            <button id="btn-sort-latest" class="asset-filter btn btn-success btn-sm active">Latest</button>
+            <button id="btn-sort-popular" class="asset-filter btn btn-info btn-sm">Popular</button>
+
+            <div class="spacer-horizontal-tiny"></div>
+
+            Show:&nbsp;
+            <button id="btn-show-games" class="asset-filter btn btn-success btn-sm active">Games</button>
+            <button id="btn-show-images" class="asset-filter btn btn-success btn-sm active">Images</button>
+        </div>
+        <hr class="underline">
+        <div id="games" class="col-md-12">
+            <%- games %>
+        </div>
+        <div id="content-divider" class="col-md-12"><hr class="underline"></div>
+        <div id="images" class="col-md-12">
+            <a class="image-preview">
+                <div class="align-center"><span class="well placeholder-image image-preview-image"></span></div>
+                <span class="image-title">Image 4</span><br>
+                Uploaded by Artist Name
+            </a>
+            <a class="image-preview">
+                <div class="align-center"><span class="well placeholder-image image-preview-image"></span></div>
+                <span class="image-title">Image 3</span><br>
+                Uploaded by Artist Name
+            </a>
+            <a class="image-preview">
+                <div class="align-center"><span class="well placeholder-image image-preview-image"></span></div>
+                <span class="image-title">Image 2</span><br>
+                Updated by Artist Name
+            </a>
+            <a class="image-preview">
+                <div class="align-center"><span class="well placeholder-image image-preview-image"></span></div>
+                <span class="image-title">Image 1</span><br>
+                Uploaded by Artist Name
+            </a>
+        </div>
+    </div>
+</body>
+</html>
