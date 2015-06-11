@@ -27,7 +27,7 @@ token.verify = function(tk, username) {
     contents = contents.split("-");
     exp = parseInt(contents[1], 10);
 
-    if(now > exp || (username && contents[0] !== username)) {
+    if(!exp || now > exp || (username && contents[0] !== username)) {
         return false;
     }
 
