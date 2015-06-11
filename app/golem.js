@@ -122,6 +122,33 @@ function initialize(app) {
             res.json(login_res);
         });
     });
+
+    app.post("/golem/auth/renew_token", function(req, res) {
+        var tk = req.body.token;
+
+        if(!tk) {
+            res.json({
+                success: false,
+                error: "Invalid or missing parameters."
+            });
+
+            return false;
+        }
+
+        tk = token.verify(tk);
+
+        if(tk) {
+            res.json({
+                success: true,
+                token: token.create(tk)[0]
+            });
+        } else {
+            res.json({
+                success: false,
+                error: "Invalid or expired token."
+            });
+        }
+    });
 }
 
 module.exports = initialize;
