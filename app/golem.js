@@ -50,10 +50,10 @@ function initialize(app) {
         });
     });
 
-    app.get("/golem/register", function(req, res) {
-        var username = req.query.username,
-            password = req.query.password,
-            email = req.query.email;
+    app.post("/golem/auth/register", function(req, res) {
+        var username = req.body.username,
+            password = req.body.password,
+            email = req.body.email;
 
         if(!username || !password) {
             res.json({
@@ -91,7 +91,7 @@ function initialize(app) {
 
                     console.log("User " + user.username + " created.");
                     
-                    if(req.query.login) {
+                    if(req.body.login) {
                         login(username, password, function(login_res) {
                             res.json(login_res);
                         });
@@ -105,9 +105,9 @@ function initialize(app) {
         });
     });
 
-    app.get("/golem/login", function(req, res) {
-        var username = req.query.username,
-            password = req.query.password;
+    app.post("/golem/auth/login", function(req, res) {
+        var username = req.body.username,
+            password = req.body.password;
 
         if(!username || !password) {
             res.json({
