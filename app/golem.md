@@ -4,7 +4,7 @@ Golem is MAVG's universal API designed to handle all online interactions necessa
 
 All interactions with Golem are handled via HTTP GETs or POSTs. All URLs have a root of `http(s)://www.redditmavg.com/golem/`. Two standard parameters are available for all requests:
 
-* `ref`: Required (string). This is a 16-character alphanumeric reference code unique to each game. Requests without a `ref` query variable or with an invalid value will be rejected.
+* `ref`: Required (string). This is a 16-character, **case-sensitive**, alphanumeric reference code unique to each game. Requests without a `ref` query variable or with an invalid value will be rejected.
 * `format`: Optional (string). If specified, data returned by a request will be in the supplied format; if unspecified, the format will default to JSON. The following formats are available:
     * json
     * csv
