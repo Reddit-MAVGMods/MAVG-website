@@ -35,12 +35,71 @@ function login(username, password, cb) {
     });
 }
 
+function csvEscape(str) {
+    str = str.toString();
+
+    if(str.search(/[," \n]/) === -1) {
+        return str;
+    } else {
+        return "\"" + str.replace(/"/g, "\"\"") + "\"";
+    }
+}
+
 function initialize(app) {
     var readme = {};
 
     fs.readFile("./app/golem.md", function(err, data) {
         readme.raw = data.toString();
         readme.html = marked(readme.raw);
+    });
+
+    //Middleware
+    app.use("/golem/*", function(req, res, next) {
+        var format = req.body.format || req.query.format || "json";
+
+        switch(format) {
+            default:
+            case "json":
+            res.sendFormatted = function(data) {
+                this.json(data);
+            };
+            break;
+
+            case "csv":
+            res.sendFormatted = function(data) {
+                var lines = [[], []];
+
+                for(var field in data) {
+                    lines[0].push(csvEscape(field));
+                    lines[1].push(csvEscape(data[field]));
+                }
+
+                lines = lines[0].join(",") + "\n" + lines[1].join(",");
+
+                this.header("Content-Type", "text/csv");
+                this.send(lines);
+            };
+            break;
+        }
+
+        next();
+    });
+
+    app.use("/golem/*", function(req, res, next) {
+        var refcode = req.body.ref || req.query.ref;
+
+        db.Game.findOne({
+            refcode: refcode
+        }, function(err, game) {
+            if(game) {
+                next();
+            } else {
+                res.sendFormatted({
+                    success: false,
+                    error: "Invalid reference code."
+                });
+            }
+        });
     });
 
     //Routes
@@ -56,7 +115,7 @@ function initialize(app) {
             email = req.body.email;
 
         if(!username || !password) {
-            res.json({
+            res.sendFormatted({
                 success: false,
                 error: "Invalid or missing parameters."
             });
@@ -68,7 +127,7 @@ function initialize(app) {
             username: username
         }, function(err, user) {
             if(user) {
-                res.json({
+                res.sendFormatted({
                     success: false,
                     error: "Username already taken."
                 });
@@ -81,7 +140,7 @@ function initialize(app) {
 
                 user.save(function(err) {
                     if(err) {
-                        res.json({
+                        res.sendFormatted({
                             success: false,
                             error: err
                         });
@@ -93,10 +152,10 @@ function initialize(app) {
                     
                     if(req.body.login) {
                         login(username, password, function(login_res) {
-                            res.json(login_res);
+                            res.sendFormatted(login_res);
                         });
                     } else {
-                        res.json({
+                        res.sendFormatted({
                             success: true
                         });
                     }
@@ -110,7 +169,7 @@ function initialize(app) {
             password = req.body.password;
 
         if(!username || !password) {
-            res.json({
+            res.sendFormatted({
                 success: false,
                 error: "Invalid or missing parameters."
             });
@@ -119,7 +178,7 @@ function initialize(app) {
         }
 
         login(username, password, function(login_res) {
-            res.json(login_res);
+            res.sendFormatted(login_res);
         });
     });
 
@@ -127,7 +186,7 @@ function initialize(app) {
         var tk = req.body.token;
 
         if(!tk) {
-            res.json({
+            res.sendFormatted({
                 success: false,
                 error: "Invalid or missing parameters."
             });
@@ -138,12 +197,12 @@ function initialize(app) {
         tk = token.verify(tk);
 
         if(tk) {
-            res.json({
+            res.sendFormatted({
                 success: true,
                 token: token.create(tk)[0]
             });
         } else {
-            res.json({
+            res.sendFormatted({
                 success: false,
                 error: "Invalid or expired token."
             });
