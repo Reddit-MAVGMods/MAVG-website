@@ -19,8 +19,7 @@ function initialize() {
 
     db.GameSchema = new mongoose.Schema({
         id: String,
-        name: String,
-        refcode: String
+        name: String
     });
 
     mongoose.model("User", db.UserSchema);

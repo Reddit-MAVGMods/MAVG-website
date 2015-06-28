@@ -86,10 +86,10 @@ function initialize(app) {
     });
 
     app.use("/golem/*", function(req, res, next) {
-        var refcode = req.body.ref || req.query.ref;
+        var id = req.body.ref || req.query.ref;
 
         db.Game.findOne({
-            refcode: refcode
+            id: id
         }, function(err, game) {
             if(game) {
                 next();
