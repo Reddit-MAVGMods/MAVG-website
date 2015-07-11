@@ -8,12 +8,14 @@
         "url": "https://github.com/Reddit-MAVGMods/MAVG-website"
     },
     "dependencies": {
-        "express": "latest",
-        "ejs": "latest",
-        "body-parser": "latest",
-        "forever": "latest",
-        "marked": "latest",
-        "bcrypt-nodejs": "latest",
-        "mongoose": "latest"
-    }
+        "express": "~4.13",
+        "ejs": "~2.3",
+        "body-parser": "~1.13",
+        "forever": "~0.14",
+        "marked": "~0.3",
+        "bcrypt-nodejs": "~0.0",
+        "mongoose": "~4.0"
+    },
+    "bugs": "https://github.com/Reddit-MAVGMods/MAVG-website/issues",
+    "engine": "node ~0.12"
 }
