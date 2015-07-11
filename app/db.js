@@ -7,7 +7,6 @@ var mongoose = require("mongoose")
     };
 
 function initialize() {
-    console.log(process.env.GOLEM_DB_PASSWORD);
     db.db = mongoose.connect("mongodb://" + db.user + ":" + db.pass + "@" + db.url);
     console.log("Connected to MongoDB as " + db.user + ".");
 
@@ -15,11 +14,18 @@ function initialize() {
         id: String,
         username: String,
         password: String,
-        email: Array
+        email: String
+    });
+
+    db.GameSchema = new mongoose.Schema({
+        id: String,
+        name: String
     });
 
     mongoose.model("User", db.UserSchema);
+    mongoose.model("Game", db.GameSchema);
     db.User = mongoose.model("User");
+    db.Game = mongoose.model("Game");
 
     console.log("Database initialized.");
 }

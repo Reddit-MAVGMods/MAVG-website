@@ -1,10 +1,10 @@
 #Golem API Specification
 
-Golem is MAVG's universal API designed to handle all online interactions necessary for any MAVG game. This provides an easy way for online games to be developed without having to deal with implementing all the miniscule details of authentication, matchmaking, servers, and whatever other centralized online activities a game requires. For help with interacting with the Golem API, to request a new feature/bugfix, or to request a reference code for a new game, [contact /u/Hydrothermal on reddit](http://www.reddit.com/message/compose/?to=Hydrothermal).
+Golem is MAVG's universal API designed to handle all online interactions necessary for any MAVG game. This provides an easy way for online games to be developed without having to deal with implementing all the miniscule details of authentication, matchmaking, servers, and whatever other centralized online activities a game requires. For help with interacting with the Golem API, to request a new feature/bugfix, or to request an ID for a new game, [contact /u/Hydrothermal on reddit](http://www.reddit.com/message/compose/?to=Hydrothermal).
 
 All interactions with Golem are handled via HTTP GETs or POSTs. All URLs have a root of `http(s)://www.redditmavg.com/golem/`. Two standard parameters are available for all requests:
 
-* `ref`: Required (string). This is a 16-character alphanumeric reference code unique to each game. Requests without a `ref` query variable or with an invalid value will be rejected.
+* `ref`: Required (string). This is a 16-character, **case-sensitive**, alphanumeric ID unique to each game. Requests without a `ref` parameter or with an invalid value will be rejected.
 * `format`: Optional (string). If specified, data returned by a request will be in the supplied format; if unspecified, the format will default to JSON. The following formats are available:
     * json
     * csv
@@ -98,7 +98,7 @@ Multiplayer games that aren't hardcoded to use a single server require a means o
 **SSL required**: no  
 **Parameters**:
 
-* `game`: Required (string). The ID of the game to list servers for. This is *not* the 16-character reference code, but a different, shorter, public identifier.
+* `game`: Required (string). The ID of the game to list servers for. This is the same 16-character ID included in the `ref` parameter.
 
 Lists all currently-online servers for a given game. Each server in the list will have a server ID and an address; additional information such as the number of players connected may be included, depending on the specifications defined by the game in question.
 
@@ -131,7 +131,7 @@ Lists all currently-online servers for a given game. Each server in the list wil
 **SSL required**: no  
 **Parameters**:
 
-* `game`: Required (string). The ID of the game to add a server to. This is *not* the 16-character reference code, but a different, shorter, public identifier.
+* `game`: Required (string). The ID of the game to add a server to. This is the same 16-character ID included in the `ref` parameter.
 * `address`: Required (string). The address of the server. Note that the default port for MAVG games is 2048 - if the server is listening on a different port, this must be included in the address (e.g. `127.0.0.1:1337`).
 * `data`: Optional (string). If a game's specification calls for a server to identify itself with more information than its ID and address, this must be included as stringified JSON via the `data` parameter.
 
