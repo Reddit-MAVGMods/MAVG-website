@@ -14,7 +14,8 @@
         "forever": "~0.14",
         "marked": "~0.3",
         "bcrypt-nodejs": "~0.0",
-        "mongoose": "~4.0"
+        "mongoose": "~4.0",
+        "request": "~2.58"
     },
     "bugs": "https://github.com/Reddit-MAVGMods/MAVG-website/issues",
     "engine": "node ~0.12"
